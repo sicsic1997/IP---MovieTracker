@@ -1,0 +1,90 @@
+{
+    "name": "Movie",
+    "fields": [
+        {
+            "fieldName": "title",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "year",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "released",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "runtime",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "plot",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 2000
+        },
+        {
+            "fieldName": "poster",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 2000
+        },
+        {
+            "fieldName": "rating",
+            "fieldType": "BigDecimal"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "rated",
+            "otherEntityName": "rated",
+            "otherEntityField": "code",
+            "otherEntityRelationshipName": "movie"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "production",
+            "otherEntityName": "production",
+            "otherEntityField": "code",
+            "otherEntityRelationshipName": "movie"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "languageList",
+            "otherEntityName": "movieLanguageMapping",
+            "otherEntityRelationshipName": "movie"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "genreList",
+            "otherEntityName": "movieGenreMapping",
+            "otherEntityRelationshipName": "movie"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "peopleList",
+            "otherEntityName": "moviePeopleRoleMapping",
+            "otherEntityRelationshipName": "movie"
+        }
+    ],
+    "changelogDate": "20190309185154",
+    "entityTableName": "movie",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}
